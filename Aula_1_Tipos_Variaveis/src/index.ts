@@ -1,6 +1,11 @@
 // Tipo number para números
 let idade: number = 25;
+let idade1 = 1.5; // tipagem por inferencia
 let altura: number = 1.75;
+
+// Instancia e inferencia
+let idade2;
+idade = 20;
 
 // Tipo string para texto
 let nome: string = "João";
