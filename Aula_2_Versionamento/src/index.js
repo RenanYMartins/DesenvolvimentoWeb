@@ -1,7 +1,7 @@
 /*
 
 Exercício:
-Considere um sistema de cadastro de usuários onde precisamos armazenar informações sobre os usuários. 
+Considere um sistema de cadastro de usuários onde precisamos armazenar informações sobre os usuários.
 Vamos criar variáveis e objetos para representar diferentes tipos de dados relacionados a um usuário.
 
 1- Crie as seguintes variáveis primitivas:
@@ -21,47 +21,23 @@ Vamos criar variáveis e objetos para representar diferentes tipos de dados rela
     Em seguida, imprima todas as variáveis e propriedades do objeto usuario usando console.log.
 
 */
-
 // 1
-let nomeCompleto: string;
-let idade: number;
-let email: string;
-let isAtivo: boolean;
-
+var nomeCompleto;
+var idade;
+var email;
+var isAtivo;
 // 2
-let usuario: {
-    nome: string;
-    sobrenome: string;
-    idade: number;
-    contato: {
-        email: string;
-        telefone: string;
-    }
-};
-
-usuario ={
+var usuario;
+usuario = {
     nome: "Renan",
     sobrenome: "Martins",
     idade: 28,
-    contato:{
+    contato: {
         email: "email@email.com",
         telefone: "15 99999-9999"
     }
-}
-
-type Contato = {
-    email: string,
-    telefone: string
-}
-
-type Pessoa = {
-    nome: string;
-    sobrenome: string;
-    idade: number
-    contato: Contato;
 };
-
-let user: Pessoa;
+var user;
 user = {
     nome: "Renan",
     sobrenome: "Martins",
@@ -70,14 +46,12 @@ user = {
         email: "email@email.com",
         telefone: "15 9999-9988"
     }
-}
-
+};
 console.log(user);
-
 /*
 
 Exercício:
-Vamos criar um sistema de gestão de produtos para uma loja online. 
+Vamos criar um sistema de gestão de produtos para uma loja online.
 Precisamos armazenar informações sobre diferentes produtos disponíveis na loja. Vamos criar variáveis e objetos para representar esses produtos.
 
 01 - Crie as seguintes variáveis primitivas:
@@ -96,19 +70,11 @@ Precisamos armazenar informações sobre diferentes produtos disponíveis na loj
     Em seguida, imprima todas as variáveis e propriedades do objeto produto usando console.log.
 
 */
-
-let produto: {
-    nome: string;
-    preco: number;
-    estoque: number;
-    categorias: string[];
-}
-
+var produto;
 produto = {
     nome: "Teclado Razer RGB",
     preco: 500.00,
     estoque: 1,
     categorias: ["Teclados", "RGB"]
-}
-
+};
 console.log(produto);
