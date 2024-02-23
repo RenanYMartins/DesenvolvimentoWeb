@@ -122,4 +122,12 @@ Dica:
 let frase: string = "Ana"
 const fraseInverso = frase.split('').reverse().join('');
 
-*/ 
+*/
+function verificarPalindromo(palavra) {
+    let palavraInversa = palavra.split('').reverse().join('');
+    if (palavraInversa == palavra) {
+        return true;
+    }
+    return false;
+}
+console.log(verificarPalindromo("arara"));
