@@ -1,27 +1,27 @@
 // Exercicio 1
 // Crie uma função que receba uma lista de números como parâmetro e retorne o maior número da lista
-// function maiorNumero(...valor:number[]):number{
-//     let res:number=valor[0];
-//     for(let i=0; i<valor.length; i++)
-//     {
-//         if(valor[i] > res){
-//             res = valor[i];
-//         }
-//     }
-//     return res;
-// }
+function maiorNumero(...valor:number[]):number{
+    let res:number=valor[0];
+    for(let i=0; i<valor.length; i++)
+    {
+        if(valor[i] > res){
+            res = valor[i];
+        }
+    }
+    return res;
+}
 
-//console.log(maiorNumero(1, 5, 2222, 330, 500));
+console.log(maiorNumero(1, 5, 2222, 330, 500));
 
 // Exercício 2
 // Desenvolva uma função que receba um número como parâmetro e verifique se ele é par ou ímpar. Retorne true se for par e false se for ímpar.
-// function imparPar(numero:number):boolean{
-//     if(numero % 2 == 0)
-//         return true;
-//     return false;
-// }
+function imparPar(numero:number):boolean{
+    if(numero % 2 == 0)
+        return true;
+    return false;
+}
 
-// console.log(imparPar(4));
+console.log(imparPar(4));
 
 // Exercício 3
 // Implemente uma função que calcule a média aritmética de um array de números e retorne o resultado. Utilize essa função para calcular a média de diferentes conjuntos de números
@@ -46,20 +46,20 @@ console.log(caixaAlta("web"));
 
 // Exercício 5 
 // Desenvolva uma função que determine se um número é primo ou não. Retorne true se for primo e false se não for.
-// function numeroPrimo(numero:number):boolean{
-//     let cont = 0;
-//     for(let i=1; i<=numero; i++){
-//         if(numero % i == 0){
-//             cont = cont + 1;
-//         }
-//     }
+function numeroPrimo(numero:number):boolean{
+    let cont = 0;
+    for(let i=1; i<=numero; i++){
+        if(numero % i == 0){
+            cont = cont + 1;
+        }
+    }
     
-//     if(cont == 2)
-//         return true;
-//     return false;
-// }
+    if(cont == 2)
+        return true;
+    return false;
+}
 
-// console.log(numeroPrimo(7));
+console.log(numeroPrimo(7));
 
 // Exercício 6
 // Implemente uma função que inverta a ordem dos elementos em um array. Utilize essa função para inverter a ordem de diferentes conjuntos de elementos
