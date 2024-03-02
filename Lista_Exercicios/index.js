@@ -40,3 +40,32 @@ function caixaAlta(palavra) {
     return res;
 }
 console.log(caixaAlta("web"));
+// Exercício 5 
+// Desenvolva uma função que determine se um número é primo ou não. Retorne true se for primo e false se não for.
+// function numeroPrimo(numero:number):boolean{
+//     let cont = 0;
+//     for(let i=1; i<=numero; i++){
+//         if(numero % i == 0){
+//             cont = cont + 1;
+//         }
+//     }
+//     if(cont == 2)
+//         return true;
+//     return false;
+// }
+// console.log(numeroPrimo(7));
+// Exercício 6
+// Implemente uma função que inverta a ordem dos elementos em um array. Utilize essa função para inverter a ordem de diferentes conjuntos de elementos
+function inverterArray() {
+    // let vetorAux = vetor.slice()
+    // let vetorInvertido = vetorAux.reverse();
+    // // console.log(vetorInvertido);
+    // return vetorInvertido;
+    var vetor = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        vetor[_i] = arguments[_i];
+    }
+    return vetor.reverse();
+}
+console.log(inverterArray([5, 4, 3, 2, 1]));
+console.log(inverterArray(['B', 'E', 'W']));

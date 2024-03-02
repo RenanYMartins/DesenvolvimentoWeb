@@ -46,4 +46,70 @@ console.log(caixaAlta("web"));
 
 // Exercício 5 
 // Desenvolva uma função que determine se um número é primo ou não. Retorne true se for primo e false se não for.
-function numeroPrimo()
+// function numeroPrimo(numero:number):boolean{
+//     let cont = 0;
+//     for(let i=1; i<=numero; i++){
+//         if(numero % i == 0){
+//             cont = cont + 1;
+//         }
+//     }
+    
+//     if(cont == 2)
+//         return true;
+//     return false;
+// }
+
+// console.log(numeroPrimo(7));
+
+// Exercício 6
+// Implemente uma função que inverta a ordem dos elementos em um array. Utilize essa função para inverter a ordem de diferentes conjuntos de elementos
+function inverterArray(...vetor:any[]):any[]{
+	return vetor.reverse();
+}
+
+console.log(inverterArray(5, 4, 3, 2, 1));
+console.log(inverterArray('B', 'E', 'W'));
+
+//Exercício 7
+// Crie uma função que receba um valor e uma porcentagem como parâmetros. A função deve retornar o valor acrescido da porcentagem indicada
+function calculoPorcentagem(numero:number, porcentagem:number):number{
+	return numero*(1+porcentagem/100);
+}
+
+console.log(calculoPorcentagem(10, 80));
+
+//Exercício 8
+// Crie uma função que receba uma string e retorne a mesma string, mas com as palavras em ordem reversa. 
+function inversaoString(palavra:string):string{
+	let auxString = palavra.split('').reverse().join('');
+	return auxString;
+}
+
+console.log(inversaoString('ar condicionado'));
+console.log(inversaoString('carro'));
+
+//Exercício 9
+// Implemente uma função que retorne a soma de todos os números pares em um arra
+function somaPares(...numero:number[]):number{
+	let soma= 0;
+	for(let i=0; i<numero.length; i++){
+		if(numero[i] % 2 == 0)
+			soma += numero[i];
+	}
+	return soma;
+}
+
+console.log(somaPares(2, 3, 10, 6, 7, 9));
+
+// Exercício 10
+// Crie uma função que calcule o fatorial de um número. Utilize essa função para calcular o fatorial de diferentes números
+function somaFatorial(numero:number):number{
+	let res = 1;
+	for(let i=numero; i>0; i--){
+		res = res * i
+	}
+	return res;
+}
+
+console.log(somaFatorial(5));
+console.log(somaFatorial(10));
