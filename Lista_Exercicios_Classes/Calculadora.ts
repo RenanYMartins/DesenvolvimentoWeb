@@ -1,35 +1,51 @@
 class Calculadora{
-    valor1:number
-    valor2: number
+    private valor1:number
+    private valor2: number
 
     constructor(valor1:number, valor2:number) {
         this.valor1 = valor1;
         this.valor2 = valor2;
     }
 
-    soma(valor1:number, valor2:number):number{
-        return valor1 + valor2;
+    get getValor1():number{
+        return this.valor1;
     }
 
-    subtrair(valor1:number, valor2:number):number{
-        return valor1 - valor2;
+    get getValor2():number{
+        return this.valor2;
     }
 
-    multiplicar(valor1:number, valor2:number):number{
-        return valor1 * valor2;
+    soma():number{
+        return this.valor1 + this.valor2;
     }
 
-    dividir(valor1:number, valor2:number):number{
-        return valor1 / valor2;
+    subtrair():number{
+        return this.valor1 - this.valor2;
+    }
+
+    multiplicar():number{
+        return this.valor1 * this.valor2;
+    }
+
+    dividir():number{
+        if(this.valor2 != 0)
+            return this.valor1 / this.valor2;
+        throw new Error("Número não pode ser divido por zero");
+    }
+    
+    porcentagem():number{
+        return (this.valor1/100)*this.valor2;
     }
 }
 
-const calculadora = new Calculadora(10, 5);
+const calculadora = new Calculadora(20, 5);
 
-console.log(calculadora.soma(10, 2));
+console.log("Soma: ", calculadora.soma());
 
-console.log(calculadora.subtrair(6, 1));
+console.log("Subtração: ", calculadora.subtrair());
 
-console.log(calculadora.multiplicar(10, 5));
+console.log("Multiplicação: ", calculadora.multiplicar());
 
-console.log(calculadora.dividir(10, 2));
+console.log("Divisão: ", calculadora.dividir());
+
+console.log("Porcentagem: ", calculadora.porcentagem());
