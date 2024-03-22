@@ -17,3 +17,24 @@ function hello(req, res) {
 }
 app.get("/api/hello", hello);
 app.listen(PORT, appLog);
+function salvarPessoa(req, res) {
+    const pessoa = req.body;
+    return res.status(200).json({ mensagem: "Operação efetuada com sucesso!", pessoa: pessoa });
+}
+app.get("/api/pessoa", salvarPessoa);
+let produtos = [];
+function addProduct(req, res) {
+    const produto = req.body;
+    produtos.push(produto);
+    return res.status(200).json({ mensagem: "Produto adicionado com sucesso!" });
+}
+function searchProduct(req, res) {
+    const produto = produtos.find((item) => String(item.id) == req.params.id);
+    if (produto) {
+        res.status(200).json(produto);
+    }
+    res.status(400).json({ mensagem: "Produto não encontrado!" });
+    return;
+}
+app.post("/api/produto/add", addProduct);
+app.get("/api/produto/:id", searchProduct);
