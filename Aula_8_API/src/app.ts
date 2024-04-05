@@ -45,5 +45,10 @@ function searchProduct(req: Request, res: Response){
     
 }
 
+function searchAllProducts(req: Request, res: Response){
+    res.status(200).json(produtos);
+}
+
 app.post("/api/produto/add", addProduct);
 app.get("/api/produto/:id", searchProduct);
+app.get("/api/produto", searchAllProducts);

@@ -36,5 +36,9 @@ function searchProduct(req, res) {
     res.status(400).json({ mensagem: "Produto não encontrado!" });
     return;
 }
+function searchAllProducts(req, res) {
+    res.status(200).json(produtos);
+}
 app.post("/api/produto/add", addProduct);
 app.get("/api/produto/:id", searchProduct);
+app.get("/api/produto", searchAllProducts);
