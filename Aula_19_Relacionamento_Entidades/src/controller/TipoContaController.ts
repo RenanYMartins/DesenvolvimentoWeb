@@ -6,6 +6,7 @@ import { Request, Response } from "express";
     export async function cadastrarTipoConta(req: Request, res:Response){
         try {
             const novoTipoConta = await serviceTipoConta.criaTipoConta(req.body);
+            console.log("Controller: ", novoTipoConta);
             res.status(201).json(
                 {
                     mensagem:"Tipo de conta criada com sucesso!",
@@ -16,6 +17,33 @@ import { Request, Response } from "express";
             res.status(400).json({ message: error.message});
         }
     }
+
+    export async function getTiposConta(req: Request, res:Response){
+        try {
+            const conta = await serviceTipoConta.getTiposConta();
+            res.status(200).json(
+                    {
+                        tipos_conta:conta
+                    }
+                );
+        } catch (error: any) {
+            res.status(400).json({ message: error.message});
+        }
+    }
+
+    export async function getTipoConta(req: Request, res:Response){
+        try {
+            const conta = await serviceTipoConta.getTipoConta(req.query.id, req.query.descricao,req.query.codigoTipoConta);
+            res.status(200).json(
+                    {
+                        tipo_conta:conta
+                    }
+                );
+        } catch (error: any) {
+            res.status(400).json({ message: error.message});
+        }
+    }
+
 
     // export async function updateTipoConta(req: Request, res:Response){
     //     try {
@@ -45,28 +73,4 @@ import { Request, Response } from "express";
     //     }
     // }
 
-    // export async function getTipoConta(req: Request, res:Response){
-    //     try {
-    //         const conta = await serviceTipoConta.getTipoConta(req.query.id, req.query.descricao,req.query.codigoTipoConta);
-    //         res.status(200).json(
-    //                 {
-    //                     tipo_conta:conta
-    //                 }
-    //             );
-    //     } catch (error: any) {
-    //         res.status(400).json({ message: error.message});
-    //     }
-    // }
-
-    // export async function getTiposConta(req: Request, res:Response){
-    //     try {
-    //         const conta = await serviceTipoConta.getTiposConta();
-    //         res.status(200).json(
-    //                 {
-    //                     tipos_conta:conta
-    //                 }
-    //             );
-    //     } catch (error: any) {
-    //         res.status(400).json({ message: error.message});
-    //     }
-    // }
+    
