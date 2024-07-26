@@ -25,5 +25,18 @@ export class TipoContaService {
         const tipoConta = await this.tipoContaRepository.getTipoContaByIdOrDescricaoOrCodigo(id, descricao, codigo_tipo_conta);
         return tipoConta;
     }
+
+    async atualizaTipoConta(tipoConta: TipoConta): Promise<TipoConta> {
+        console.log(tipoConta instanceof TipoConta);
+
+        if(!tipoConta)
+            throw new Error("O parâmetro passado não é um objeto do tipo conta");
+
+        const resultado: TipoConta[] = await this.tipoContaRepository.getTipoContaByIdOrDescricaoOrCodigo(undefined, undefined, tipoConta.id);
+
+        this.tipoContaRepository.updateTipoConta(tipoConta);
+        return tipoConta;
+    }
+
 }
 

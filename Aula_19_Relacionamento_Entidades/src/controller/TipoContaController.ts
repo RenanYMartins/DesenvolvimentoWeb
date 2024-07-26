@@ -45,19 +45,19 @@ import { Request, Response } from "express";
     }
 
 
-    // export async function updateTipoConta(req: Request, res:Response){
-    //     try {
-    //         const tipoConta = await serviceTipoConta.atualizaTipoConta(req.body);
-    //         res.status(200).json(
-    //                 {
-    //                     mensagem:"Tipo de conta atualizado com sucesso!",
-    //                     tipo_conta:tipoConta
-    //                 }
-    //             );
-    //     } catch (error: any) {
-    //         res.status(400).json({ message: error.message});
-    //     }
-    // }
+    export async function updateTipoConta(req: Request, res:Response){
+        try {
+            const tipoConta = await serviceTipoConta.atualizaTipoConta(req.body);
+            res.status(200).json(
+                    {
+                        mensagem:"Tipo de conta atualizado com sucesso!",
+                        tipo_conta:tipoConta
+                    }
+                );
+        } catch (error: any) {
+            res.status(400).json({ message: error.message});
+        }
+    }
 
     // export async function deletaTipoConta(req: Request, res:Response){
     //     try {

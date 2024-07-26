@@ -1,5 +1,5 @@
 // import { cadastrarConta, deletaConta, getConta, getContas, updateConta } from "./controller/ContaController";
-import { cadastrarTipoConta, getTiposConta} from "./controller/TipoContaController";
+import { cadastrarTipoConta, getTiposConta, getTipoConta, updateTipoConta} from "./controller/TipoContaController";
 import express from "express"
 
 const app = express();
@@ -15,9 +15,9 @@ app.use(express.json());
 
 app.post("/api/banco/tipoConta", cadastrarTipoConta);
 app.get("/api/banco/tipoConta/all",getTiposConta)
-// app.put("/api/banco/tipoConta", updateTipoConta);
+app.get("/api/banco/tipoConta",getTipoConta);
+app.put("/api/banco/tipoConta", updateTipoConta);
 // app.delete("/api/banco/tipoConta",deletaTipoConta)
-// app.get("/api/banco/tipoConta",getTipoConta)
 
 
 app.listen(PORT, ()=>{console.log("API rodando na PORTA 3040")})

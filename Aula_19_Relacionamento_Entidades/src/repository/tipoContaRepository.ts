@@ -86,5 +86,16 @@ export class TipoContaRepository {
         }
     }
 
+    async updateTipoConta(tipoConta: TipoConta): Promise<void> {
+        try {
+            const query = "UPDATE banco.tipo_contas SET descricao = ?, codigo_tipo_conta = ? WHERE id = ?";
+            await executarComandoSQL(query, [tipoConta.descricao, tipoConta.codigoTipoConta, tipoConta.id]);
+            console.log("Tipo de conta atualizado com sucesso: ", tipoConta.id);
+        } catch (err) {
+            console.log("Erro ao atualizar tipo de conta: ", err);
+            throw err;
+        }
+    }
+
 
 }
