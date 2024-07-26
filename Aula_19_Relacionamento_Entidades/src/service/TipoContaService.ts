@@ -5,9 +5,9 @@ export class TipoContaService {
     tipoContaRepository: TipoContaRepository = new TipoContaRepository;
 
     async criaTipoConta(tipoConta: any): Promise<TipoConta> {
-        const { descricao, codigo_tipo_conta} = tipoConta;
+        const { descricao, codigo_tipo_conta } = tipoConta;
         console.log("Service: ", tipoConta);
-        if(!descricao || !codigo_tipo_conta) {
+        if (!descricao || !codigo_tipo_conta) {
             throw new Error("Informações incompletas");
         }
 
@@ -29,12 +29,32 @@ export class TipoContaService {
     async atualizaTipoConta(tipoConta: TipoConta): Promise<TipoConta> {
         console.log(tipoConta instanceof TipoConta);
 
-        if(!tipoConta)
+        if (!tipoConta)
             throw new Error("O parâmetro passado não é um objeto do tipo conta");
 
         const resultado: TipoConta[] = await this.tipoContaRepository.getTipoContaByIdOrDescricaoOrCodigo(undefined, undefined, tipoConta.id);
 
+        if (resultado.length == 0) {
+            throw new Error("Tipo de conta não encontrada.");
+        }
+
         this.tipoContaRepository.updateTipoConta(tipoConta);
+        return tipoConta;
+    }
+
+    async deletaTipoConta(tipoConta: TipoConta): Promise<TipoConta> {
+        console.log(tipoConta instanceof TipoConta);
+
+        if (!tipoConta)
+            throw new Error("O parâmetro passado não é um objeto do tipo conta");
+
+        const resultado: TipoConta[] = await this.tipoContaRepository.getTipoContaByIdOrDescricaoOrCodigo(undefined, undefined, tipoConta.id);
+
+        if (resultado.length == 0) {
+            throw new Error("Tipo de conta não encontrada.");
+        }
+
+        this.tipoContaRepository.deleteTipoConta(tipoConta.id);
         return tipoConta;
     }
 

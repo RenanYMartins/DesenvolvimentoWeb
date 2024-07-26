@@ -97,5 +97,16 @@ export class TipoContaRepository {
         }
     }
 
+    async deleteTipoConta(tipoConta: number): Promise<void> {
+        try {
+            const query = "DELETE FROM banco.tipo_Contas WHERE id = ?";
+            await executarComandoSQL(query, [tipoConta]);
+            console.log("Tipo de conta deletado com sucesso: ", tipoConta);
+        } catch (err) {
+            console.log("Erro ao deletar tipo de conta: ", err);
+            throw err;
+        }
+    }
+
 
 }
